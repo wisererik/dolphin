@@ -26,7 +26,7 @@ class StorageController(wsgi.Controller):
     def show(self, req, id):
         return dict(name="Storage 2")
 
-    def create(self, req, body):
+    def create(self, req, body=None):
         return dict(name="Storage 3")
 
     def update(self, req, id, body):
