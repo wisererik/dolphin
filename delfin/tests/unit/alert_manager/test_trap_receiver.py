@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import unittest
 from unittest import mock
 
 from oslo_utils import importutils
@@ -36,7 +35,7 @@ class TrapReceiverTestCase(test.TestCase):
         trap_receiver_class = importutils.import_class(
             self.TRAP_RECEIVER_CLASS)
         self.trap_receiver = trap_receiver_class(self.DEF_TRAP_RECV_ADDR,
-                                            self.DEF_TRAP_RECV_PORT)
+                                                 self.DEF_TRAP_RECV_PORT)
         self.mock_object(self.trap_receiver,
                          'alert_rpc_api', self.alert_rpc_api)
 
@@ -129,7 +128,6 @@ class TrapReceiverTestCase(test.TestCase):
         # Verify that close dispatcher is not called when engine is not
         # initialised
         self.assertFalse(mock_close_dispatcher.called)
-
 
     @mock.patch('delfin.cryptor.decode', mock.Mock(return_value='public'))
     @mock.patch('delfin.alert_manager.snmp_validator.SNMPValidator.validate')

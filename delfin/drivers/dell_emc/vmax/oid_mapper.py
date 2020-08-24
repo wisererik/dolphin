@@ -17,17 +17,17 @@ class OidMapper(object):
     """Functions/attributes for oid to alert info mapper"""
 
     # Map to translate trap oid strings to oid names
-    OID_MAP = {"1.3.6.1.3.94.1.11.1.3": "ConnUnitEventId",
-               "1.3.6.1.3.94.1.11.1.6": "ConnUnitEventSeverity",
-               "1.3.6.1.3.94.1.11.1.7": "ConnUnitEventType",
-               "1.3.6.1.3.94.1.11.1.8": "ConnUnitEventObject",
-               "1.3.6.1.3.94.1.11.1.9": "ConnUnitEventDesc",
+    OID_MAP = {"1.3.6.1.3.94.1.11.1.3": "connUnitEventId",
+               "1.3.6.1.3.94.1.11.1.6": "connUnitEventSeverity",
+               "1.3.6.1.3.94.1.11.1.7": "connUnitEventType",
+               "1.3.6.1.3.94.1.11.1.8": "connUnitEventObject",
+               "1.3.6.1.3.94.1.11.1.9": "connUnitEventDescr",
                "1.3.6.1.3.94.1.6.1.20": "connUnitName",
                "1.3.6.1.3.94.1.6.1.3": "connUnitType",
                "1.3.6.1.4.1.1139.3.8888.1.0": "emcAsyncEventSource",
                "1.3.6.1.4.1.1139.3.8888.2.0": "emcAsyncEventCode",
                "1.3.6.1.4.1.1139.3.8888.3.0": "emcAsyncEventComponentType",
-               "1.3.6.1.4.1.1139.3.8888.4.0": "emcAsyncEventComponentTName"}
+               "1.3.6.1.4.1.1139.3.8888.4.0": "emcAsyncEventComponentName"}
 
     def __init__(self):
         pass
