@@ -17,6 +17,8 @@ from unittest import mock
 
 from oslo_utils import importutils
 
+from delfin.common import config # noqa
+from delfin import cryptor
 from delfin import exception
 from delfin.tests.unit.api import fakes
 
@@ -145,8 +147,11 @@ class AlertSourceControllerTestCase(unittest.TestCase):
                                    mock_alert_source_update):
         req = fakes.HTTPRequest.blank('/storages/fake_id/alert-source')
         fake_storage_id = 'abcd-1234-5678'
-        mock_alert_source_update.return_value = fakes.fake_v2_alert_source()
-        mock_alert_source_get.return_value = fakes.fake_v2_alert_source()
+        return_v2_alert_source = fakes.fake_v2_alert_source()
+        return_v2_alert_source['community_string'] = cryptor.encode(
+            return_v2_alert_source['community_string'])
+        mock_alert_source_update.return_value = return_v2_alert_source
+        mock_alert_source_get.return_value = return_v2_alert_source
         expected_alert_source = {'storage_id': 'abcd-1234-5678',
                                  'host': '127.0.0.1',
                                  'community_string': 'public',
